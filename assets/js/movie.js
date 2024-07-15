@@ -52,15 +52,35 @@ $(document).ready(function() {
     }
   
     function fetchPlatforms(movieId) { // fetch streaming services movie is available on.
-        // TODO: need to add a check for when the movie is not available on any platform. Might need to ask Alex or Tristan how we can achieve this in this context.
-      $.get(`https://api.watchmode.com/v1/title/${movieId}/details/?apiKey=${WATCHMODE_API_KEY}`, function(data) {
-        $('#platforms').empty();
-        data.sources.forEach(source => {
-          $('#platforms').append(`<img src="${source.logo}" alt="${source.name}" class="w-8 h-8">`); // display streaming service logo.
-        });
-      });
+      console.log(movieId);
+      // 'https://api.watchmode.com/v1/search/?apiKey=${WATCHMODE_API_KEY}&search_field=name&search_value=Ed%20Wood';
+      //$.get(`https://api.themoviedb.org/3/movie/${movieId}/watch/providers`, function(data) {
+    //     console.log(data);
+    //     $('#platforms').empty();
+    //     data.sources.forEach(source => {
+    //       console.log(source);
+    //       $('#platforms').append(`<img src="${source.logo}" alt="${source.name}" class="w-8 h-8">`); // display streaming service logo.
+    //     });
+    //   }); 
+    // }
+  // add error to show if no platforms are found for the title shown.
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/watch/providers`; // dynamically change the movie id to the movie id of the movie that is being displayed.
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYzMyZjM1OWFiNWNjMmNjZmU5OTAwODllNmVlMzA2MiIsIm5iZiI6MTcyMDc1MTkzMi4yNTYyOTEsInN1YiI6IjY2OGZiZDM1ZjgzZmYyMjBiNWE3OWI5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cNPEc-735YLCuvtmRg8810suBO7srexXA4Y23K89HKs'
     }
+  };
   
+  fetch(url, options)
+    .then(res => res.json())
+    .then(json => {
+      console.log(json.results.AU)})
+    .catch(err => console.error('error:' + err));
+
+    // .buy then do a for loop to loop through the array of the provider name and logo
+}
     function saveToWatchlist(movie, listType) { // save movie to watchlist or disliked list pop up modal.
       let list = JSON.parse(localStorage.getItem(listType)) || [];
       list.push(movie);
