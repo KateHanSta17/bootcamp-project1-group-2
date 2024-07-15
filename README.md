@@ -1,4 +1,43 @@
-# bootcamp-project1-group-2
+# "Pick my Flick"
+## Bootcamp Project #1
+Created by Group 2;
+[Kate](https://github.com/KateHanSta17/)
+[Lewis](https://github.com/lewisgjohns)
+[Sanjeev](https://github.com/Sanjeev190)
+[Anson](https://github.com/ansonldoublee)
+
+A simple website to cure your movie night analysis-paralysis. Let us pick for you.
+
+## Usage
+
+Instructions on how to use the project.
+
+## References
+
+This project uses the following resources and libraries:
+
+
+1. **Tailwind CSS Documentation**
+   - [Tailwind CSS Installation](https://tailwindcss.com/docs/installation)
+
+2. **TMDb API Documentation**
+   - [TMDb API - Getting Started](https://developer.themoviedb.org/reference/intro/getting-started)
+
+3. **Watchmode API Documentation**
+   - [Watchmode API Documentation](https://api.watchmode.com/docs/)
+
+4. **jQuery Event Handling Documentation**
+   - [jQuery Event Handler Attachment](https://api.jquery.com/category/events/event-handler-attachment/)
+
+## Contributing
+
+Guidelines for contributing to the project.
+
+## License
+
+MIT License
+
+---
 
 # 07 Project 1: Interactive Front-End Application
 
