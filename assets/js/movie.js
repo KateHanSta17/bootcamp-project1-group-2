@@ -43,8 +43,27 @@ function displayMovie(movie) {
   $('#moviePoster').attr('src', `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
   $('#movieTitle').text(movie.title);
   $('#movieSynopsis').text(movie.overview);
+  fetchTrailer(movie.id); // Fetch trailer here
   fetchPlatforms(movie.id);
   $('#movieResult').removeClass('hidden');
+}
+
+function fetchTrailer(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}`;
+
+  $.get(url, function(data) {
+    const trailer = data.results.find(video => video.type === 'Trailer');
+    if (trailer) {
+      const videoId = trailer.key;
+      $('#trailer').html(`
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+      `);
+    } else {
+      $('#trailer').append('<p>No trailer available</p>');
+    }
+  }).fail(function() {
+    $('#trailer').append('<p>Failed to fetch trailer</p>');
+  });
 }
 
 function fetchPlatforms(movieId) {
