@@ -72,13 +72,20 @@ function displayMovie(movie) {
 function fetchTrailer(movieId) {
   const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}`;
 
+  // removes previous trailer after each new movie is fetched
+  $('#trailer').empty();
+
   $.get(url, function(data) {
     const trailer = data.results.find(video => video.type === 'Trailer');
     if (trailer) {
       const videoId = trailer.key;
       $('#trailer').html(`
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-      `);
+        <iframe
+          class="absolute top-0 left-0 w-full h-full"
+          src="https://www.youtube.com/embed/${videoId}"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>      `);
     } else {
       $('#trailer').append('<p>No trailer available</p>');
     }
