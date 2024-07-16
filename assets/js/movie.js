@@ -77,8 +77,12 @@ function fetchTrailer(movieId) {
     if (trailer) {
       const videoId = trailer.key;
       $('#trailer').html(`
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
-      `);
+        <iframe
+          class="absolute top-0 left-0 w-full h-full"
+          src="https://www.youtube.com/embed/${videoId}"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>      `);
     } else {
       $('#trailer').append('<p>No trailer available</p>');
     }
