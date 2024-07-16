@@ -1,7 +1,25 @@
 const TMDB_API_KEY = 'cc32f359ab5cc2ccfe990089e6ee3062';
+const SPOTIFY_CLIENT_ID = '9b24f33477b84ab0b61cfbd6aa000e1d';
+const SPOTIFY_CLIENT_SECRET = '811ae717971f424fbb7b69b070accba8';
 
 // Array to keep track of suggested movie IDs to avoid duplicates being shown when searching again in the same session.
 let suggestedMovies = [];
+
+// Function to get Spotify access token
+function getSpotifyAccessToken(callback) {
+  const authString = btoa(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`);
+  fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + authString
+    },
+    body: 'grant_type=client_credentials'
+  })
+  .then(response => response.json())
+  .then(data => callback(data.access_token))
+  .catch(error => console.error('Error fetching Spotify access token:', error));
+}
 
 function fetchGenres() {
   $.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${TMDB_API_KEY}`, function(data) {
@@ -45,6 +63,9 @@ function displayMovie(movie) {
   $('#movieSynopsis').text(movie.overview);
   fetchTrailer(movie.id); // Fetch trailer here
   fetchPlatforms(movie.id);
+  getSpotifyAccessToken(function(accessToken) {
+    fetchSpotifyPlaylist(movie.title, accessToken);
+  });
   $('#movieResult').removeClass('hidden');
 }
 
@@ -71,8 +92,6 @@ function fetchPlatforms(movieId) {
 
   $.get(url, function(data) {
     const providers = data.results.AU && data.results.AU.flatrate;
-    console.log(providers);
-    console.log(data.results.AU);
     $('#platforms').empty();
     if (providers) {
       providers.forEach(provider => {
@@ -83,6 +102,28 @@ function fetchPlatforms(movieId) {
     }
   }).fail(function() {
     $('#platforms').append('<p>Failed to fetch platforms</p>');
+  });
+}
+
+function fetchSpotifyPlaylist(movieTitle, accessToken) {
+  const url = `https://api.spotify.com/v1/search?q=${encodeURIComponent(movieTitle + ' soundtrack')}&type=playlist&limit=1`;
+
+  $.ajax({
+    url: url,
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    },
+    success: function(data) {
+      if (data.playlists.items.length > 0) {
+        const playlist = data.playlists.items[0];
+        $('#spotifyPlaylist').html(`<a href="${playlist.external_urls.spotify}" target="_blank">Listen to the soundtrack on Spotify</a>`);
+      } else {
+        $('#spotifyPlaylist').html(`<a href="https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW" target="_blank">Listen to a generic movie playlist on Spotify</a>`);
+      }
+    },
+    error: function() {
+      $('#spotifyPlaylist').html(`<a href="https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW" target="_blank">Listen to a generic movie playlist on Spotify</a>`);
+    }
   });
 }
 
