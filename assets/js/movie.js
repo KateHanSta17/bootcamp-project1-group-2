@@ -72,6 +72,9 @@ function displayMovie(movie) {
 function fetchTrailer(movieId) {
   const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}`;
 
+  // removes previous trailer after each new movie is fetched
+  $('#trailer').empty();
+
   $.get(url, function(data) {
     const trailer = data.results.find(video => video.type === 'Trailer');
     if (trailer) {
