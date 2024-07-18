@@ -65,8 +65,8 @@ function displayMovie(movie) {
   $('#movieTitle').text(movie.title);
   $('#movieSynopsis').text(movie.overview);
   fetchTrailer(movie.id); // Fetch trailer here
-  fetchPlatforms(movie.id);
-  getSpotifyAccessToken(function(accessToken) {
+  fetchPlatforms(movie.id); // Fetch platforms here
+  getSpotifyAccessToken(function(accessToken) { // Fetch Spotify playlist here
     fetchSpotifyPlaylist(movie.title, accessToken);
   });
   $('#movieResult').removeClass('hidden');
@@ -94,7 +94,7 @@ function fetchTrailer(movieId) {
     } else {
       $('#trailer').append('<p>No trailer available</p>'); //display message if trailer is not available
     }
-  }).fail(function() {
+  }).fail(function() { 
     $('#trailer').append('<p>Failed to fetch trailer</p>'); //display error message if trailer is not found
   });
 }
@@ -144,7 +144,7 @@ function fetchSpotifyPlaylist(movieTitle, accessToken) {
         $('#spotifyPlaylist').html(buttonHtml.replace('{url}', 'https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW'));
       }
     },
-    error: function() { 
+    error: function() {  //display error message if fetching spotify playlist fails
       const errorButtonHtml = `
         <button onclick="window.open('https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW', '_blank')" 
                 class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-4 flex items-center">
@@ -172,7 +172,7 @@ function loadWatchlist() {
   
   
 
-  watchlist.forEach((movie, index) => {
+  watchlist.forEach((movie, index) => { //watchlist movies will be stored in a separate list 
     $('#watchlist').append(`
       <li class="flex items-center space-x-4">
       <li>
@@ -185,7 +185,7 @@ function loadWatchlist() {
   });
   
 
-  dislikedList.forEach((movie, index) => { //disliked
+  dislikedList.forEach((movie, index) => { //disliked movies will be stored in a separate list
     $('#disliked').append(`<li>${movie.title} <span class="delete-btn" data-index="${index}" data-type="disliked"><i class="fas fa-trash-alt"></i></span></li>`);
   });
 
@@ -220,7 +220,7 @@ $('#pickButton').click(function() {
   }
 });
 
-
+//function to add the movie to the watchlist
 $('#likeButton').click(function() {
   let movie = {
     title: $('#movieTitle').text(),
@@ -232,6 +232,7 @@ $('#likeButton').click(function() {
   $('#pickAgainButton').removeClass('hidden');
 });
 
+//function to dislike the movie
 $('#dislikeButton').click(function() {
   let movie = {
     title: $('#movieTitle').text(),
@@ -244,6 +245,7 @@ $('#dislikeButton').click(function() {
   fetchMovie(genre, decade);
 });
 
+//function to pick another movie
 $('#pickAgainButton').click(function() {
   let genre = $('#genre').val();
   let decade = $('#decade').val();
@@ -251,12 +253,13 @@ $('#pickAgainButton').click(function() {
   $('#pickAgainButton').addClass('hidden');
 });
 
+//function to show the watchlist
 $('#watchlistButton').click(function() {
   loadWatchlist();
   $('#watchlistModal').removeClass('hidden');
 });
 
+//function to close the watchlist
 $('#closeWatchlist').click(function() {
   $('#watchlistModal').addClass('hidden');
 });
-// need to check the code from 130 i
