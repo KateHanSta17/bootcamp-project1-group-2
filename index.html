@@ -1,247 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick-a-Flick</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-900">
-    <header class="bg-blue-600 text-white p-4">
-        <h1 class="text-2xl font-bold">Pick my Flick!</h1>
-        <p class="mt-2">Don't know what to watch? Let us pick!</p>
-    </header>
-    <main class="p-4">
-        <section class="mb-6">
-            <h2 class="text-xl font-semibold">Genre</h2>
-            <div class="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Card 1 Comedy -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Comedy</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card 2 Drama -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Drama</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card 3 Action-->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Action</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card 4 Horror -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Horror</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card 5 Thriller -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Thriller</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card 6 Western -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Western</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card 7 Adventure -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Adventure</h3>
-                        </div>
-                    </div>
-                </label>
-                <!-- Card Sci-Fi -->
-                <label class="relative">
-                    <input type="checkbox" class="absolute opacity-0 h-0 w-0">
-                    <div class="card-content bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300 p-4 border-4 border-transparent">
-                        <img class="w-full h-48 object-cover" src="https://via.placeholder.com/300" alt="Card Image">
-                        <div class="p-4">
-                            <h3 class="text-xl font-semibold mb-2">Sci-Fi</h3>
-                        </div>
-                    </div>
-                </label>
-            </div>
-        </section>
-        <!-- Decade Drop-down menu -->
-        <!-- <section class="mb-6">
-            <h2 class="text-xl font-semibold">Decade</h2>
-            <div>
-                <div class="relative mt-2">
-                  <button type="button" class="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-                    <span class="flex items-center">
-                      <span class="ml-3 block truncate">All</span>
-                    </span>
-                    <span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
-                      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd" />
-                      </svg>
-                    </span>
-                  </button>
-                  <ul class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
-                    <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                      <div class="flex items-center">
-                        <span class="ml-3 block truncate font-normal">2020+</span>
-                      </div>
-                      <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                        </svg>
-                      </span>
-                    </li>
-                    <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">2010-2019</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">2000-2009</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1990-1999</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1980-1989</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1970-1979</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1960-1969</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1950-1959</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1940-1949</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1930-1939</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-                      <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" id="listbox-option-0" role="option">
-                        <div class="flex items-center">
-                          <span class="ml-3 block truncate font-normal">1920-1929</span>
-                        </div>
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600">
-                          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                          </svg>
-                        </span>
-                      </li>
-              
-                    <!-- More items... -->
-                  </ul>
-                </div>
-              </div>
-        </section>
-        <section>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                Submit
-            </button>
-        </section>
-    </main>
-    <footer class="bg-blue-600 text-white p-4 mt-6 text-center">
-        <p>&copy; 2024 Pick-a-Flick. All rights reserved. 
-            <a href="https://github.com/KateHanSta17/" target="_blank">Kate</a>, <a href="https://github.com/ansonldoublee" target="_blank">Anson</a>, <a href="https://github.com/lewisgjohns" target="_blank">Lewis</a> & <a href="https://github.com/Sanjeev190" target="_blank">Sanjeev</a></p>
-    </footer>
-<script src="./assets/js/movie.js"></script>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick My Flick</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .delete-btn {
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="min-h-screen bg-[url('assets/images/background-gradient.png')] bg-cover bg-center bg-no-repeat">
+  <header class="bg-black text-white p-4 flex justify-between items-center sticky-header" >
+    
+   <div class="flex items-center"> <img src="./assets/images/header-logo (1).svg " alt="image logo"class="w-12 h-12 mr-2" > <h1 class="text-2xl font-bold" > Pick My Flick !</h1></div>
+    
+    <button id="watchlistButton" class="bg-white text-black p-2 rounded-full">
+      <i class="fas fa-clock mr-2"></i><span class="aria-hidden">My Watchlist</span>
+    </button>
+  </header> 
+
+
+  <main class="p-4 max-w-[1000px] mx-auto">
+    <div class="mb-4 mt-20">
+        <h1 class="text-3xl text-center text-white font-bold">Don't know what to watch?</h1>
+        <h1 class="text-l text-center text-white">Just pick a genre and decade</h1>
+    </div>
+    <div class="mb-4">
+        <label for="genre" class="block text-sm font-medium text-white mb-2">Genres</label>
+        <select id="genre" class="p-2 rounded border border-gray-300 w-full focus:ring focus:ring-blue-500 focus:border-blue-500">
+          <!-- Options will be populated by JS -->
+        </select>
+    </div>
+      
+    <div class="mb-4">
+        <label for="decade" class="block text-sm font-medium text-white mb-2">Decade</label>
+        <select id="decade" class="p-2 rounded border border-gray-300 w-full focus:ring focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--Select Decade--</option>
+          <option value="1920-1929">1920-1929</option>
+          <option value="1930-1939">1930-1939</option>
+          <option value="1940-1949">1940-1949</option>
+          <option value="1950-1959">1950-1959</option>
+          <option value="1960-1969">1960-1969</option>
+          <option value="1970-1979">1970-1979</option>
+          <option value="1980-1989">1980-1989</option>
+          <option value="1990-1999">1990-1999</option>
+          <option value="2000-2009">2000-2009</option>
+          <option value="2010-2019">2010-2019</option>
+          <option value="2020+">2020+</option>
+          <option value="all">All</option>
+        </select>
+    </div>
+
+      <div class="flex justify-center mb-4">
+        <button id="pickButton" class="bg-red-600 text-white p-2 px-4 rounded-full">Pick My Flick</button>
+      </div>    
+      <div id="errorMessage" class="text-red-600 mt-2 hidden">Please select both Genre and Decade.</div>
+    
+        <div id="movieResult" class="mt-4 hidden">
+                <div class="flex justify-center">
+                    <h1 id="movieTitle" class="text-4xl text-white font-bold"></h1>
+                </div>
+
+                <div class="flex flex-col md:flex-row">
+                    <section class="flex justify-center">
+                        <div class="flex justify-center w-64 h-full md:w-72 md:h-auto lg:w-80 lg:h-auto">
+                            <img id="moviePoster" class="w-full h-full" src="" alt="Movie Poster">
+                        </div>
+                    </section>
+                    
+                    <div class="ml-4 flex flex-col md:flex-col-reverse md:items-start">
+                    <!-- Movie buttons section -->
+                    <section class="flex-1">
+                    <div class="mt-4">
+                        <button id="dislikeButton" class="bg-red-600 text-white p-2 px-4 rounded-full">
+                        <i class="fas fa-thumbs-down"></i> Not interested
+                        </button>
+                        <button id="likeButton" class="bg-green-600 text-white p-2 px-4 rounded-full">
+                        <i class="fas fa-thumbs-up"></i> Add to Watchlist
+                        </button>
+                        <button id="pickAgainButton" class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-4 hidden">Pick Again</button>
+                    </div>
+                    </section>
+                
+                    <!-- Movie details section -->
+                    <section class="flex-1">
+                    <p id="movieSynopsis" class="text-white"></p>
+                    <div id="spotifyPlaylist" class="mt-4 text-white">
+                        <!-- Spotify playlist link will be populated by JS -->
+                    </div>
+                    <div id="platforms" class="mt-2 flex space-x-2 text-white">
+                        <!-- Platforms will be populated by JS -->
+                    </div>
+                    </section>
+                </div>
+                
+                
+
+                </div>
+
+            </div>
+            <div class="flex justify-center">
+            <div id="trailer" class="mt-4 justify-center relative w-full pb-[56.25%] h-0">
+                <!-- Trailer will be populated by JS -->
+            </div>
+            </div>
+            </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-4 mt-4"><p>
+    &copy; 2024 Pick My Flick. All rights reserved.
+    <a href="https://github.com/KateHanSta17/" target="_blank">Kate</a>, <a href="https://github.com/ansonldoublee" target="_blank">Anson</a>, <a href="https://github.com/lewisgjohns" target="_blank">Lewis</a> & <a href="https://github.com/Sanjeev190" target="_blank">Sanjeev</a></p></p>
+  </footer>
+
+  <div id="watchlistModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-black rounded-lg max-w-md w-full overflow-y-auto" id="modalBox">
+<div class="flex items-center justify justify-between  bg-black-600 p-2">
+      <h2 class="  text-white text-xl font-bold  ">My Watchlist</h2>
+    
+      <button id="closeWatchlist" class=" text-white p- rounded  flex items-center h-10 w-10"  ><img src="./assets/images/close_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" class="h-16 w-6"></button>
+      </div>
+      <div class="flex justify-between">
+        <div>
+          <h3 class="text-white font-bold mb-2 width=100 p-2">Liked Movies</h3>
+          <ul id="watchlist" class="space-y-2 p-2">
+            <!-- Watchlist items will be populated by JS -->
+          </ul>
+        </div>
+        <div class="dislike-Button-hide">
+          <h3 class="text-lg font-bold mb-2 text-white ">Disliked Movies</h3>
+          <ul id="disliked" class="space-y-2">
+            <!-- Disliked items will be populated by JS -->
+          </ul>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+  <script src="./assets/js/movie.js"></script>
 </body>
 
 </html>
+
 
