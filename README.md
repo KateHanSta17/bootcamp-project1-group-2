@@ -1,13 +1,14 @@
-# "Pick my Flick"
-## Bootcamp Project #1
+# Bootcamp Project #1: "Pick my Flick"
+**Created by Group 2;
+[Kate](https://github.com/KateHanSta17/), [Lewis](https://github.com/lewisgjohns), [Sanjeev](https://github.com/Sanjeev190), [Anson](https://github.com/ansonldoublee).**
 
 ### GitHub Repo
 [Bootcamp Project #1 Group 2](https://github.com/KateHanSta17/bootcamp-project1-group-2)
 ### GitHub Pages link
 [Pick My Flick](https://katehansta17.github.io/bootcamp-project1-group-2/)
 
-Created by Group 2;
-[Kate](https://github.com/KateHanSta17/), [Lewis](https://github.com/lewisgjohns), [Sanjeev](https://github.com/Sanjeev190), [Anson](https://github.com/ansonldoublee).
+
+## About Project
 
 A simple website to cure your movie night analysis-paralysis. 
 *"Let us pick for you."*
@@ -18,16 +19,81 @@ Whether you're in the mood for a classic or something new, just select your pref
 
 Not only will we show you where you can stream the recommendation, our app ensures you never see the same suggestion twice; so transform your movie-watching experience with **Pick my Flick** – your personal movie concierge.
 
+## User Story and Acceptance Criteria
+### User Story
+```
+AS a movie enthusiast,
+I WANT to effortlessly discover a movie to watch tonight, tailored to my preferences,
+SO THAT I can enjoy watching films that match my mood and interests without wasting time searching.
+```
+### Acceptance Criteria
+#### Genre and Decade Selection:
+```
+GIVEN that I open the app,
+WHEN I select my preferred genre from the dropdown menu,
+And select a decade from the dropdown menu,
+THEN I should be able to see movie suggestions that match my selections.
+```
+#### Personalised Recommendations:
+```
+GIVEN that I have selected my preferences,
+WHEN I click the "Pick My Flick" button,
+THEN the app should display a movie suggestion with details including the title, poster, synopsis, and available streaming platforms.
+```
+#### Avoid Duplicate Suggestions:
+```
+GIVEN that I have previously seen a movie suggestion,
+WHEN I use the app again,
+THEN I should not see the same movie suggestion twice unless I reset the app or clear my history.
+```
+#### Watchlisting Movies:
+```
+GIVEN that I am viewing a movie suggestion,
+WHEN I click the "Add to Watchlist" button,
+THEN the movie should be saved to my watchlist and I should be notified of the addition.
+```
+#### Not Interested Movies:
+```
+GIVEN that I am viewing a movie suggestion,
+WHEN I click the "Not Interested" button,
+THEN the app should track the movie as disliked, and provide a new suggestion that I have not seen before.
+```
+#### Watchlist Management:
+```
+GIVEN that I want to review my liked movies,
+WHEN I open my watchlist,
+THEN I should see a list of all the movies I have liked, displayed in an organised manner, with options to remove movies from the list.
+```
+#### Responsive Design:
+```
+GIVEN that I am using the app on different devices,
+Wherever I open the app on desktop or mobile
+THEN the design should be responsive to that display
+```
 
-## Usage
+## The App
+()[]
 
-Instructions on how to use the project.
+
+## About Collaborators
+- Project tracker / WIP management - Kate
+- Presentation - All
+- API Research - All
+- User Story / Acceptance Criteria - Kate & Sanjeev
+- Wireframe and Design - Anson via Figma
+- HTML // Styling (CSS) - Kate - boilerplate, Anson - body, Sanjeev - header & footer, Lewis - modals
+- JavaScript - All
+- Content - images & text - Anson & Lewis
+- ReadMe - Kate
+- Code structure - Quality assurance for assessment criteria - Sanjeev
 
 ## References
 
 This project uses the following resources and libraries:
 
 1. **HTML**: Provides the structure for the web page, including headers, main content, modals, and buttons.
+2. **Figma**:
+[Figma Wireframe](https://www.figma.com/design/4zqiUVgC9GIZSlCCfAmKIO/Pick-My-Flick?node-id=0-1&t=IPWlgg9KilON9S7H-1) Curated by Anson Lee
 2. **Tailwind CSS Documentation**
    [Tailwind CSS Installation](https://tailwindcss.com/docs/installation)
 3. **JavaScript**: Core functionality for the app is written in vanilla JavaScript and jQuery. Functions for fetching data from APIs (fetchGenres, fetchMovie, fetchTrailer, fetchPlatforms, fetchSpotifyPlaylist).
@@ -41,8 +107,8 @@ Searching for playlists related to movie soundtracks (fetchSpotifyPlaylist).
 6. **Local Storage**:
 Used to store and retrieve the user's watchlist and disliked movies to avoid showing duplicate suggestions (saveToWatchlist, loadWatchlist, deleteFromList).
 7. **External Libraries**:
-Font Awesome: For using various icons (thumbs-up, thumbs-down, trash can).
-Google Fonts: Importing the Roboto font for consistent typography across the app.
+*Font Awesome*: For using various icons (thumbs-up, thumbs-down, trash can).
+*Google Fonts*: Importing the Roboto font for consistent typography across the app.
 
 
 ## License
