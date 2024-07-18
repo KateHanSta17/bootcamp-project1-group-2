@@ -21,6 +21,7 @@ function getSpotifyAccessToken(callback) {
   .catch(error => console.error('Error fetching Spotify access token:', error));
 }
 
+//this function will fetch the genres from the API and append them to the dropdown
 function fetchGenres() {
   $.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${TMDB_API_KEY}`, function(data) {
     data.genres.forEach(genre => {
@@ -29,6 +30,7 @@ function fetchGenres() {
   });
 }
 
+//this function will fetch the movie based on the genre and decade selected
 function fetchMovie(genre, decade) {
   let startYear = decade.split('-')[0];
   let endYear = decade.split('-')[1] || new Date().getFullYear();
@@ -52,11 +54,12 @@ function fetchMovie(genre, decade) {
       }
     } else {
       $('#movieResult').addClass('hidden');
-      alert('No movies found for the selected criteria.');
+      alert('No movies found for the selected criteria.'); //display alert if no movies are found
     }
   });
 }
 
+//this function will display the movie details on the page
 function displayMovie(movie) {
   $('#moviePoster').attr('src', `https://image.tmdb.org/t/p/w500${movie.poster_path}`);
   $('#movieTitle').text(movie.title);
@@ -69,12 +72,14 @@ function displayMovie(movie) {
   $('#movieResult').removeClass('hidden');
 }
 
+//this function will fetch the trailer of the movie
 function fetchTrailer(movieId) {
   const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}`;
 
   // removes previous trailer after each new movie is fetched
   $('#trailer').empty();
 
+  //this function will display the trailer on the page from the API
   $.get(url, function(data) {
     const trailer = data.results.find(video => video.type === 'Trailer');
     if (trailer) {
@@ -87,31 +92,34 @@ function fetchTrailer(movieId) {
           allowfullscreen
         ></iframe>      `);
     } else {
-      $('#trailer').append('<p>No trailer available</p>');
+      $('#trailer').append('<p>No trailer available</p>'); //display message if trailer is not available
     }
   }).fail(function() {
-    $('#trailer').append('<p>Failed to fetch trailer</p>');
+    $('#trailer').append('<p>Failed to fetch trailer</p>'); //display error message if trailer is not found
   });
 }
 
+//this function will fetch the platforms where the movie is available
 function fetchPlatforms(movieId) {
   const url = `https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=${TMDB_API_KEY}`;
 
+  //this function will display the platforms on the page
   $.get(url, function(data) {
     const providers = data.results.AU && data.results.AU.flatrate;
     $('#platforms').empty();
     if (providers) {
       providers.forEach(provider => {
-        $('#platforms').append(`<img src="https://image.tmdb.org/t/p/w92${provider.logo_path}" alt="${provider.provider_name}" class="w-8 h-8">`);
+        $('#platforms').append(`<img src="https://image.tmdb.org/t/p/w92${provider.logo_path}" alt="${provider.provider_name}" class="w-16 h-16">`);
       });
     } else {
-      $('#platforms').append('<p>No platforms found</p>');
+      $('#platforms').append('<p>No platforms found</p>'); //display message if platforms are not found
     }
   }).fail(function() {
-    $('#platforms').append('<p>Failed to fetch platforms</p>');
+    $('#platforms').append('<p>Failed to fetch platforms</p>');//display error message if fethcing platforms fails
   });
 }
 
+//this function will fetch the spotify playlist of the movie
 function fetchSpotifyPlaylist(movieTitle, accessToken) {
   const url = `https://api.spotify.com/v1/search?q=${encodeURIComponent(movieTitle + ' soundtrack')}&type=playlist&limit=1`;
 
@@ -120,6 +128,7 @@ function fetchSpotifyPlaylist(movieTitle, accessToken) {
     headers: {
       'Authorization': `Bearer ${accessToken}`
     },
+    //this function will display the spotify playlist button on the page
     success: function(data) {
       const buttonHtml = `
         <button onclick="window.open('{url}', '_blank')" 
@@ -128,31 +137,33 @@ function fetchSpotifyPlaylist(movieTitle, accessToken) {
         </button>
       `;
 
-      if (data.playlists.items.length > 0) {
-        const playlist = data.playlists.items[0];
+      if (data.playlists.items.length > 0) { 
+        const playlist = data.playlists.items[0]; 
         $('#spotifyPlaylist').html(buttonHtml.replace('{url}', playlist.external_urls.spotify));
       } else {
         $('#spotifyPlaylist').html(buttonHtml.replace('{url}', 'https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW'));
       }
     },
-    error: function() {
+    error: function() { 
       const errorButtonHtml = `
         <button onclick="window.open('https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW', '_blank')" 
                 class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-4 flex items-center">
           <img src="assets/images/spotify_icon.png" alt="Spotify Icon" class="w-6 h-6 mr-2"> Related Spotify playlist
         </button>
       `;
-      $('#spotifyPlaylist').html(errorButtonHtml);
+      $('#spotifyPlaylist').html(errorButtonHtml); 
     }
   });
 }
 
+//this function will save the movie to the watchlist
 function saveToWatchlist(movie, listType) {
   let list = JSON.parse(localStorage.getItem(listType)) || [];
   list.push(movie);
   localStorage.setItem(listType, JSON.stringify(list));
 }
 
+//this function will load the watchlist from the local storage
 function loadWatchlist() {
   let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
   let dislikedList = JSON.parse(localStorage.getItem('disliked')) || [];
@@ -174,11 +185,11 @@ function loadWatchlist() {
   });
   
 
-  dislikedList.forEach((movie, index) => {
+  dislikedList.forEach((movie, index) => { //disliked
     $('#disliked').append(`<li>${movie.title} <span class="delete-btn" data-index="${index}" data-type="disliked"><i class="fas fa-trash-alt"></i></span></li>`);
   });
 
-  $('.delete-btn').click(function() {
+  $('.delete-btn').click(function() { //this function will delete the movie from the watchlist
     let index = $(this).data('index');
     let type = $(this).data('type');
     deleteFromList(index, type);
@@ -186,15 +197,18 @@ function loadWatchlist() {
   });
 }
 
+
+//this function will delete the movie from the list
 function deleteFromList(index, listType) {
   let list = JSON.parse(localStorage.getItem(listType)) || [];
   list.splice(index, 1);
   localStorage.setItem(listType, JSON.stringify(list));
 }
 
+//this will fetch the genres from the API
 fetchGenres();
 
-$('#pickButton').click(function() {
+$('#pickButton').click(function() { 
   let genre = $('#genre').val();
   let decade = $('#decade').val();
 
@@ -205,6 +219,7 @@ $('#pickButton').click(function() {
     fetchMovie(genre, decade);
   }
 });
+
 
 $('#likeButton').click(function() {
   let movie = {
