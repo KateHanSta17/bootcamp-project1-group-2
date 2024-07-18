@@ -121,15 +121,28 @@ function fetchSpotifyPlaylist(movieTitle, accessToken) {
       'Authorization': `Bearer ${accessToken}`
     },
     success: function(data) {
+      const buttonHtml = `
+        <button onclick="window.open('{url}', '_blank')" 
+                class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-4 flex items-center">
+          <img src="assets/images/spotify_icon.png" alt="Spotify Icon" class="w-6 h-6 mr-2"> Related Spotify playlist
+        </button>
+      `;
+
       if (data.playlists.items.length > 0) {
         const playlist = data.playlists.items[0];
-        $('#spotifyPlaylist').html(`<a href="${playlist.external_urls.spotify}" target="_blank">Listen to the soundtrack on Spotify</a>`);
+        $('#spotifyPlaylist').html(buttonHtml.replace('{url}', playlist.external_urls.spotify));
       } else {
-        $('#spotifyPlaylist').html(`<a href="https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW" target="_blank">Listen to a generic movie playlist on Spotify</a>`);
+        $('#spotifyPlaylist').html(buttonHtml.replace('{url}', 'https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW'));
       }
     },
     error: function() {
-      $('#spotifyPlaylist').html(`<a href="https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW" target="_blank">Listen to a generic movie playlist on Spotify</a>`);
+      const errorButtonHtml = `
+        <button onclick="window.open('https://open.spotify.com/playlist/37i9dQZF1DXb69UWhjrXsW', '_blank')" 
+                class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-4 flex items-center">
+          <img src="assets/images/spotify_icon.png" alt="Spotify Icon" class="w-6 h-6 mr-2"> Related Spotify playlist
+        </button>
+      `;
+      $('#spotifyPlaylist').html(errorButtonHtml);
     }
   });
 }
