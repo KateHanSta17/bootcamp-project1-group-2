@@ -72,8 +72,15 @@ THEN the design should be responsive to that display
 ```
 
 ## The App
-()[]
-
+![Landing Page](./assets/images/Readme1.jpg)
+![Search Results](./assets/images/Readme2.jpg)
+![Refreshed Search Results](./assets/images/Readme3.jpg)
+![Spotify API](./assets/images/Readme4.jpg)
+![Netflix Trailer Display](./assets/images/Readme5.jpg)
+![Desktop Pop Up Watchlist modal](./assets/images/Readme6.jpg)
+![Mobile Display](./assets/images/Readme7.jpg)
+![New Session](./assets/images/Readme8.jpg)
+![Mobile Watchlist](./assets/images/Readme9.jpg)
 
 ## About Collaborators
 - Project tracker / WIP management - Kate
@@ -117,7 +124,9 @@ MIT License
 
 ---
 
-# 07 Project 1: Interactive Front-End Application
+# RUBRIK
+
+## 07 Project 1: Interactive Front-End Application
 
 At the conclusion of each phase of this course, you’ll work with a group of your fellow students to create a **project**. A project is collaborative work among a group of developers to create an application that solves a real-world problem. Projects model the experience you’ll encounter in every development role at any company, from large multinational businesses to small startups. Coding is collaborative.
 
