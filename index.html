@@ -26,10 +26,10 @@
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body class="min-h-screen bg-[url('assets/images/background-gradient.png')] bg-cover bg-center bg-no-repeat">
+<body class="min-h-screen bg-[url('assets/images/background-gradient.png')] bg-cover bg-center bg-no-repeat flex flex-col">
   <header class="bg-black text-white p-4 flex justify-between items-center sticky-header" >
     
-   <div class="flex items-center"> <img src="./assets/images/header-logo (1).svg " alt="image logo"class="w-12 h-12 mr-2" > <h1 class="text-2xl font-bold" > Pick My Flick !</h1></div>
+   <div class="flex items-center"> <img src="./assets/images/header-logo (1).svg " alt="image logo"class="w-12 h-12 mr-2" > <h1 class="text-2xl font-bold" > Pick My Flick</h1></div>
     
     <button id="watchlistButton" class="bg-white text-black p-2 rounded-full">
       <i class="fas fa-clock mr-2"></i><span class="aria-hidden">My Watchlist</span>
@@ -37,7 +37,7 @@
   </header> 
 
 
-  <main class="p-4 max-w-[1000px] mx-auto">
+  <main class="p-4 mx-auto max-w-[1000px] w-full">
     <div class="mb-4 mt-20">
         <h1 class="text-3xl text-center text-white font-bold">Don't know what to watch?</h1>
         <h1 class="text-l text-center text-white">Just pick a genre and decade</h1>
@@ -73,63 +73,64 @@
       </div>    
       <div id="errorMessage" class="text-red-600 mt-2 hidden">Please select both Genre and Decade.</div>
     
-        <div id="movieResult" class="mt-4 hidden">
+        <div id="movieResult" class="mt-20 hidden">
                 <div class="flex justify-center">
                     <h1 id="movieTitle" class="text-4xl text-white font-bold"></h1>
                 </div>
+                <div class="flex flex-col md:flex-row mt-8">
 
-                <div class="flex flex-col md:flex-row">
-                    <section class="flex justify-center">
-                        <div class="flex justify-center w-64 h-full md:w-72 md:h-auto lg:w-80 lg:h-auto">
-                            <img id="moviePoster" class="w-full h-full" src="" alt="Movie Poster">
-                        </div>
-                    </section>
-                    
-                    <div class="ml-4 flex flex-col md:flex-col-reverse md:items-start">
-                    <!-- Movie buttons section -->
-                    <section class="flex-1">
-                    <div class="mt-4">
-                        <button id="dislikeButton" class="bg-red-600 text-white p-2 px-4 rounded-full">
-                        <i class="fas fa-thumbs-down"></i> Not interested
-                        </button>
-                        <button id="likeButton" class="bg-green-600 text-white p-2 px-4 rounded-full">
-                        <i class="fas fa-thumbs-up"></i> Add to Watchlist
-                        </button>
-                        <button id="pickAgainButton" class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-4 hidden">Pick Again</button>
+                  <!-- Left section (movie poster) -->
+                  <section class="flex justify-center mb-4 md:mb-0 md:mr-4">
+                    <div class="flex justify-center w-64 h-full md:w-72 md:h-auto lg:w-80 lg:h-auto">
+                      <img id="moviePoster" class="w-full h-full" src="" alt="Movie Poster">
                     </div>
+                  </section>
+                
+                  <!-- Right section (movie details and buttons) -->
+                  <div class="flex flex-col md:flex-col-reverse md:items-start">
+                
+                    <!-- Movie buttons section -->
+                    <section class="flex-1 mb-4 md:mb-0">
+                      <div class="mt-4">
+                        <button id="dislikeButton" class="bg-red-600 text-white p-2 px-4 rounded-full">
+                          <i class="fas fa-thumbs-down"></i> Not interested
+                        </button>
+                        <button id="likeButton" class="bg-green-600 text-white p-2 px-4 rounded-full mt-2 md:mt-4">
+                          <i class="fas fa-thumbs-up"></i> Add to Watchlist
+                        </button>
+                        <button id="pickAgainButton" class="bg-zinc-700 text-white p-2 px-4 rounded-full mt-2 md:mt-4 hidden ">Pick Again</button>
+                      </div>
                     </section>
                 
                     <!-- Movie details section -->
                     <section class="flex-1">
-                    <p id="movieSynopsis" class="text-white"></p>
-                    <div id="spotifyPlaylist" class="mt-4 text-white">
+                      <p id="movieSynopsis" class="text-white mb-4"></p>
+                      <div id="spotifyPlaylist" class="text-white mb-4">
                         <!-- Spotify playlist link will be populated by JS -->
-                    </div>
-                    <div id="platforms" class="mt-2 flex space-x-2 text-white">
+                      </div>
+                      <div id="platforms" class="flex space-x-2 text-white">
                         <!-- Platforms will be populated by JS -->
-                    </div>
+                      </div>
                     </section>
-                </div>
                 
+                  </div>
                 
-
                 </div>
-
             </div>
             <div class="flex justify-center">
-            <div id="trailer" class="mt-4 justify-center relative w-full pb-[56.25%] h-0">
+            <div id="trailer" class="mt-10 justify-center relative w-full pb-[56.25%] h-0">
                 <!-- Trailer will be populated by JS -->
             </div>
             </div>
             </div>
   </main>
 
-  <footer class="bg-gray-800 text-white text-center p-4 mt-4"><p>
+  <footer class="bg-black text-white text-center p-4 mt-auto"><p>
     &copy; 2024 Pick My Flick. All rights reserved.
     <a href="https://github.com/KateHanSta17/" target="_blank">Kate</a>, <a href="https://github.com/ansonldoublee" target="_blank">Anson</a>, <a href="https://github.com/lewisgjohns" target="_blank">Lewis</a> & <a href="https://github.com/Sanjeev190" target="_blank">Sanjeev</a></p></p>
   </footer>
 
-  <div id="watchlistModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
+  <div id="watchlistModal" class="fixed inset-0 bg-zinc-800 bg-opacity-75 flex items-center justify-center hidden">
     <div class="bg-black rounded-lg max-w-md w-full overflow-y-auto" id="modalBox">
 <div class="flex items-center justify justify-between  bg-black-600 p-2">
       <h2 class="  text-white text-xl font-bold  ">My Watchlist</h2>
