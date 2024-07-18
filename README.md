@@ -1,12 +1,23 @@
 # "Pick my Flick"
 ## Bootcamp Project #1
-Created by Group 2;
-[Kate](https://github.com/KateHanSta17/)
-[Lewis](https://github.com/lewisgjohns)
-[Sanjeev](https://github.com/Sanjeev190)
-[Anson](https://github.com/ansonldoublee)
 
-A simple website to cure your movie night analysis-paralysis. Let us pick for you.
+### GitHub Repo
+[Bootcamp Project #1 Group 2](https://github.com/KateHanSta17/bootcamp-project1-group-2)
+### GitHub Pages link
+[Pick My Flick](https://katehansta17.github.io/bootcamp-project1-group-2/)
+
+Created by Group 2;
+[Kate](https://github.com/KateHanSta17/), [Lewis](https://github.com/lewisgjohns), [Sanjeev](https://github.com/Sanjeev190), [Anson](https://github.com/ansonldoublee).
+
+A simple website to cure your movie night analysis-paralysis. 
+*"Let us pick for you."*
+
+Introducing **Pick my Flick**, the ultimate movie discovery app designed to cure your movie night analysis-paralysis and get you watching before your popcorn gets cold!
+
+Whether you're in the mood for a classic or something new, just select your preferred genre and decade, and let our smart algorithm do the rest. With recommendations you’ll be able to preview the run time, synopsis, poster and trailer of your suggested movie. Plus with our integration with Spotify for checking out soundtracks after you’ve watched, you'll never struggle to pick a movie again. 
+
+Not only will we show you where you can stream the recommendation, our app ensures you never see the same suggestion twice; so transform your movie-watching experience with **Pick my Flick** – your personal movie concierge.
+
 
 ## Usage
 
@@ -16,22 +27,23 @@ Instructions on how to use the project.
 
 This project uses the following resources and libraries:
 
+1. **HTML**: Provides the structure for the web page, including headers, main content, modals, and buttons.
+2. **Tailwind CSS Documentation**
+   [Tailwind CSS Installation](https://tailwindcss.com/docs/installation)
+3. **JavaScript**: Core functionality for the app is written in vanilla JavaScript and jQuery. Functions for fetching data from APIs (fetchGenres, fetchMovie, fetchTrailer, fetchPlatforms, fetchSpotifyPlaylist).
+DOM manipulation and event handling.
+4. **TMDb API Documentation**
+   [TMDb API - Getting Started](https://developer.themoviedb.org/reference/intro/getting-started) Used to get genres (fetchGenres) and discover movies based on selected genre and decade (fetchMovie).
+Fetching movie trailers (fetchTrailer) and available streaming platforms (fetchPlatforms).
+5. **Spotify API Documentation** [Spotify API Documentation](https://developer.spotify.com/documentation/web-api)
+Obtaining access tokens to authenticate requests (getSpotifyAccessToken).
+Searching for playlists related to movie soundtracks (fetchSpotifyPlaylist).
+6. **Local Storage**:
+Used to store and retrieve the user's watchlist and disliked movies to avoid showing duplicate suggestions (saveToWatchlist, loadWatchlist, deleteFromList).
+7. **External Libraries**:
+Font Awesome: For using various icons (thumbs-up, thumbs-down, trash can).
+Google Fonts: Importing the Roboto font for consistent typography across the app.
 
-1. **Tailwind CSS Documentation**
-   - [Tailwind CSS Installation](https://tailwindcss.com/docs/installation)
-
-2. **TMDb API Documentation**
-   - [TMDb API - Getting Started](https://developer.themoviedb.org/reference/intro/getting-started)
-
-3. **Watchmode API Documentation**
-   - [Watchmode API Documentation](https://api.watchmode.com/docs/)
-
-4. **jQuery Event Handling Documentation**
-   - [jQuery Event Handler Attachment](https://api.jquery.com/category/events/event-handler-attachment/)
-
-## Contributing
-
-Guidelines for contributing to the project.
 
 ## License
 
