@@ -112,7 +112,7 @@ function fetchPlatforms(movieId) {
         $('#platforms').append(`<img src="https://image.tmdb.org/t/p/w92${provider.logo_path}" alt="${provider.provider_name}" class="w-16 h-16">`);
       });
     } else {
-      $('#platforms').append('<p>No platforms found</p>'); //display message if platforms are not found
+      $('#platforms').append('<p>No streaming platforms found</p>'); //display message if platforms are not found
     }
   }).fail(function() {
     $('#platforms').append('<p>Failed to fetch platforms</p>');//display error message if fethcing platforms fails
