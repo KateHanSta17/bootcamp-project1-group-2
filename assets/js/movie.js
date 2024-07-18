@@ -145,10 +145,21 @@ function loadWatchlist() {
   let dislikedList = JSON.parse(localStorage.getItem('disliked')) || [];
   $('#watchlist').empty();
   $('#disliked').empty();
+  
+  
 
   watchlist.forEach((movie, index) => {
-    $('#watchlist').append(`<li>${movie.title} <span class="delete-btn" data-index="${index}" data-type="watchlist"><i class="fas fa-trash-alt"></i></span></li>`);
+    $('#watchlist').append(`
+      <li class="flex items-center space-x-4">
+      <li>
+        <img src="https://image.tmdb.org/t/p/w92${movie.poster}" alt="poster not found" class="w-20 h-20 object-cover">
+        </li>
+        <span class="text-white text-sm">${movie.title}</span>
+        <span class="delete-btn text-red-500" data-index="${index}" data-type="watchlist"><i class="fas fa-trash-alt"></i></span>
+      </li>
+    `);
   });
+  
 
   dislikedList.forEach((movie, index) => {
     $('#disliked').append(`<li>${movie.title} <span class="delete-btn" data-index="${index}" data-type="disliked"><i class="fas fa-trash-alt"></i></span></li>`);
@@ -220,3 +231,4 @@ $('#watchlistButton').click(function() {
 $('#closeWatchlist').click(function() {
   $('#watchlistModal').addClass('hidden');
 });
+// need to check the code from 130 i

@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    align-items: center;
+}
+.img {
+    display: flex;
+    margin-right: 1px; /* Adjust as needed for spacing */
+}
+.text-2xl {
+    font-size: 2em;
+}
+ .sticky-header { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; }
+   
+    
+    .main-content {
+        margin-top: 70px; /* Adjust based on header height */
+    }
+   
+   .dislike-Button-hide {
+    display: none;
+
+   }
+   #modalBox{
+    /* Frame 30 */
+
+/* position: absolute; */
+width: 100vh;
+height: 500px;
+
+/* background: left: calc(50% - 1000px/2);
+top: calc(50% - 631px/2 - 32.5px);
+rgba(28, 28, 28, 0.9); */
+border-radius: 8px;
+
+   }

@@ -23,27 +23,30 @@
       color: red;
     }
   </style>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body class="bg-gray-100">
-  <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-    <h1 class="text-2xl">Pick My Flick</h1>
-    <button id="watchlistButton" class="bg-white text-blue-600 p-2 rounded">
-      <i class="fas fa-list"></i> Watchlist
+  <header class="bg-black text-white p-4 flex justify-between items-center sticky-header" >
+    
+   <div class="flex items-center"> <img src="./assets/images/header-logo (1).svg " alt="image logo"class="w-12 h-12 mr-2" > <h1 class="text-2xl font-bold" > Pick My Flick !</h1></div>
+    
+    <button id="watchlistButton" class="bg-white text-black p-2 rounded-full">
+      <i class="fas fa-clock mr-2"></i><span class="aria-hidden">My Watchlist</span>
     </button>
-  </header>
+  </header> 
 
-  <main class="p-4">
+  <main class="p-4 main-content">
     <div class="mb-4">
       <label for="genre" class="block mb-2">Select Genre:</label>
-      <select id="genre" class="p-2 rounded border w-full">
+      <select id="genre" class="p-2  rounded-full w-full">
         <!-- Options will be populated by JS -->
       </select>
     </div>
 
     <div class="mb-4">
       <label for="decade" class="block mb-2">Select Decade:</label>
-      <select id="decade" class="p-2 rounded border w-full">
+      <select id="decade" class="p-2 rounded-full w-full">
         <option value="">--Select Decade--</option>
         <option value="1920-1929">1920-1929</option>
         <option value="1930-1939">1930-1939</option>
@@ -60,7 +63,7 @@
       </select>
     </div>
 
-    <button id="pickButton" class="bg-blue-600 text-white p-2 rounded">Pick My Flick</button>
+    <button id="pickButton" class="bg-red-600 text-white p-2 rounded-full">Pick My Flick</button>
     <div id="errorMessage" class="text-red-600 mt-2 hidden">Please select both Genre and Decade.</div>
 
     <div id="movieResult" class="mt-4 hidden">
@@ -97,28 +100,33 @@
     </div>
   </main>
 
-  <footer class="bg-gray-800 text-white text-center p-4 mt-4">
+  <footer class="bg-gray-800 text-white text-center p-4 mt-4"><p>
     &copy; 2024 Pick My Flick. All rights reserved.
+    <a href="https://github.com/KateHanSta17/" target="_blank">Kate</a>, <a href="https://github.com/ansonldoublee" target="_blank">Anson</a>, <a href="https://github.com/lewisgjohns" target="_blank">Lewis</a> & <a href="https://github.com/Sanjeev190" target="_blank">Sanjeev</a></p></p>
   </footer>
 
   <div id="watchlistModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center hidden">
-    <div class="bg-white p-4 rounded-lg max-w-md w-full">
-      <h2 class="text-xl font-bold mb-4">My Watchlist</h2>
+    <div class="bg-black rounded-lg max-w-md w-full" id="modalBox">
+<div class="flex items-center justify justify-between  bg-black-600 p-2">
+      <h2 class="  text-white text-xl font-bold  ">My Watchlist</h2>
+    
+      <button id="closeWatchlist" class=" text-white p- rounded  flex items-center h-10 w-10"  ><img src="./assets/images/close_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg" class="h-16 w-6"></button>
+      </div>
       <div class="flex justify-between">
         <div>
-          <h3 class="text-lg font-bold mb-2">Liked Movies</h3>
-          <ul id="watchlist" class="space-y-2">
+          <h3 class="text-white font-bold mb-2 width=100 p-2">Liked Movies</h3>
+          <ul id="watchlist" class="space-y-2 p-2">
             <!-- Watchlist items will be populated by JS -->
           </ul>
         </div>
-        <div>
-          <h3 class="text-lg font-bold mb-2">Disliked Movies</h3>
+        <div class="dislike-Button-hide">
+          <h3 class="text-lg font-bold mb-2 text-white ">Disliked Movies</h3>
           <ul id="disliked" class="space-y-2">
             <!-- Disliked items will be populated by JS -->
           </ul>
         </div>
       </div>
-      <button id="closeWatchlist" class="bg-red-600 text-white p-2 rounded mt-4">Close</button>
+    
     </div>
   </div>
 
