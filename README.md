@@ -6,7 +6,8 @@
 [Bootcamp Project #1 Group 2](https://github.com/KateHanSta17/bootcamp-project1-group-2)
 ### GitHub Pages link
 [Pick My Flick](https://katehansta17.github.io/bootcamp-project1-group-2/)
-
+### Presentation Slides
+[Group 2 Presentation](https://docs.google.com/presentation/d/1DwkG2V2zgb6M31IsXbkCKev_YTuNepJqe28qyyQlqPY/edit#slide=id.p)
 
 ## About Project
 
